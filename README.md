@@ -1,4 +1,4 @@
-# 🧠 Showroom Optimizasyon Projesi
+# 🧠 Range Planı Optimizasyon Projesi
 
 > Geçmiş sezon satış verilerini kullanarak FW26 sezonu için satış tahmini ve üretim optimizasyonu yapan uçtan uca karar destek sistemi.
 
@@ -11,23 +11,27 @@ Amaç, geçmiş dört sezonun (FW22–FW25) satış verilerini kullanarak **FW26
 
 Proje üç temel aşamadan oluşmaktadır:
 1. **Veri Hazırlama ve Satış Tahmini (Forecast)**
-2. **Üretim Optimizasyonu (Pyomo + Gurobi)**
+2. **Üretim Optimizasyonu (Pyomo + Glpk)**
 3. **Sonuçların Görselleştirilmesi (Streamlit - yakında eklenecek)**
 
 ---
 
 ## 🧩 Dosya Yapısı
 
+|## 🧩 Dosya Yapısı
+
 | Dosya Adı | Açıklama |
 |------------|-----------|
-| 🐍 `LASTFLOFORECASTuntitled0.py` | Ana tahminleme (forecast) dosyası. Geçmiş verilerle FW26 sezonu satışlarını makine öğrenmesi modelleriyle tahmin eder. |
-| 📄 `forecast_FW26_results_bestmodel.csv` | En iyi performans gösteren tahmin modelinden elde edilen FW26 satış tahmin sonuçları. |
-| 📄 `forecast_input_FW26_güncel.csv` | FW26 sezonu için tahminleme modeline girilen, özellik mühendisliği uygulanmış veri seti. |
-| 🐍 `optimizasyon_cleancode.py` | Pyomo + Gurobi kullanılarak oluşturulmuş temizlenmiş optimizasyon modeli. Tahmin sonuçlarına göre üretim miktarlarını optimize eder. |
-| 📄 `optimization_results_FW26_pyomoyeni.csv` | Optimizasyon modelinin çıktı dosyası. Her SKU için önerilen üretim miktarlarını içerir. |
-| 📄 `training_data_FW22_FW25_güncel.csv` | FW22–FW25 arası geçmiş satış verilerini içeren, tahmin modelinin eğitiminde kullanılan veri seti. |
+| 🐍 `LAST_FORECAST.py` | FW22–FW25 geçmiş satış verilerini kullanarak FW26 sezonu için satış tahmini yapan ana Python dosyası. |
+| 🐍 `rangeoptimizasyon_code.py` | Pyomo + Glpk ile oluşturulmuş optimizasyon modeli. Tahmin sonuçlarını kullanarak üretim miktarlarını maksimize eder. |
+| 🐍 `app.py` | Streamlit arayüzü — tahmin ve optimizasyon çıktılarının görselleştirilmesini sağlar. |
+| 📄 `forecast_input_FW26_güncel_with_newcols.csv` | FW26 sezonu için tahmin modeline girilen, özellik mühendisliği uygulanmış güncel veri seti. |
+| 📄 `optimization_results_FW26_pyomoyeni.csv` | Optimizasyon modelinden elde edilen sonuçlar — her SKU için önerilen üretim miktarlarını içerir. |
+| 📄 `training_data_FW22_FW25_güncel_with_newcols.csv` | FW22–FW25 sezonlarına ait geçmiş satış verilerini içeren ve tahmin modelinin eğitiminde kullanılan güncel veri seti. |
+| 🧾 `requirements.txt` | Projenin çalışması için gereken Python kütüphanelerinin listesi. |
+| 🧩 `packages.txt` | Streamlit Cloud veya sanal ortam kurulumu için alternatif bağımlılık listesi. |
+| 🖼️ `flo_logo.png` | Arayüzde kullanılan FLO logosu görseli. |
 | 📄 `README.md` | Bu dokümantasyon dosyası. Projenin genel açıklamasını ve dosya yapısını içerir. |
-| 🌐 *(yakında)* `streamlit_app.py` | Tahmin ve optimizasyon sonuçlarını etkileşimli olarak görselleştiren Streamlit uygulaması. |
 
 ---
 
@@ -40,7 +44,7 @@ Proje üç temel aşamadan oluşmaktadır:
 - **Değerlendirme metrikleri:** MAPE, RMSE, R²  
 
 ### 2️⃣ Optimizasyon Modeli
-- **Araçlar:** Pyomo + Gurobi  
+- **Araçlar:** Pyomo + Glpk  
 - **Amaç:** Toplam beklenen karı maksimize etmek  
 - **Karar değişkeni:** SKU bazında üretilecek miktar  
 - **Kısıtlar:** Stok sınırları, kategori oranları, üretim kapasitesi  
@@ -56,16 +60,13 @@ Proje üç temel aşamadan oluşmaktadır:
 | Bileşen | Teknoloji |
 |----------|------------|
 | Tahminleme | Python (Pandas, Scikit-learn, XGBoost) |
-| Optimizasyon | Pyomo, Gurobi |
+| Optimizasyon | Pyomo, GLPK |
 | Görselleştirme | Streamlit |
 | Veri İşleme | Pandas, CSV |
 | Versiyon Kontrolü | Git + GitHub |
 
 ---
 
-## ▶️ Çalıştırma Adımları
+> ⚠️ Bu projede kullanılan tüm veriler **tamamen sentetik olarak üretilmiştir** ve **gerçek ticari verileri yansıtmamaktadır.**  
+Veriler yalnızca **akademik amaçlarla (Capstone Projesi)** kullanılmıştır.
 
-1. **Depoyu klonla**
-   ```bash
-   git clone https://github.com/<kullanıcı-adın>/<repo-adı>.git
-   cd <repo-adı>
