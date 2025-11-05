@@ -53,6 +53,42 @@ Proje üç temel aşamadan oluşmaktadır:
 
 ---
 
+## 💻 Uygulama Özeti
+
+Bu web arayüzü, geçmiş sezon verilerini kullanarak **FW26 sezonu için satış tahmini** ve **optimum üretim planı** oluşturan etkileşimli bir **karar destek sistemidir.**
+
+---
+
+### 🧠 Talep Tahmini
+
+- FW22–FW25 verilerini analiz edip FW26 satışlarını tahmin eder.  
+- En iyi modeli (**Linear Regression**, **Random Forest**, **XGBoost**) otomatik olarak seçer.  
+- Kullanıcı, global indirim oranını değiştirerek **senaryo simülasyonu** yapabilir.  
+
+**Sunulan çıktılar:**
+- 📊 Toplam satış tahmini  
+- 📈 Geçen sezona göre büyüme oranı  
+- 🎨 Marka, klasman ve sezon bazlı görsel kırılımlar  
+- 💾 Sonuçları CSV olarak indirme imkânı  
+
+---
+
+### 📈 Optimizasyon
+
+- Tahmin sonuçlarını kullanarak **bütçe**, **marj** ve **ürün oranı** kısıtları altında en iyi üretim planını oluşturur.  
+
+**Parametreler:**
+💰 Bütçe • 📊 Marj • 🎨 Basic/Line oranı • 📦 OTB payı  
+
+**Sunulan çıktılar:**
+- 🎯 Toplam satış potansiyeli  
+- 💰 Kullanılan bütçe oranı  
+- 📈 Ortalama marj ve Basic oranı  
+- 📊 Marka, klasman ve line bazlı grafik dağılımlar  
+- 💾 İndirilebilir optimal plan dosyası  
+
+---
+
 ## 🧮 Kullanılan Teknolojiler
 
 | Bileşen | Teknoloji |
