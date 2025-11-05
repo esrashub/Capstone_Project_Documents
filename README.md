@@ -12,7 +12,7 @@ Amaç, geçmiş dört sezonun (FW22–FW25) satış verilerini kullanarak **FW26
 Proje üç temel aşamadan oluşmaktadır:
 1. **Veri Hazırlama ve Satış Tahmini (Forecast)**
 2. **Üretim Optimizasyonu (Pyomo + Glpk)**
-3. **Sonuçların Görselleştirilmesi (Streamlit - yakında eklenecek)**
+3. **Sonuçların Görselleştirilmesi (Streamlit)**
 
 ---
 
@@ -47,7 +47,7 @@ Proje üç temel aşamadan oluşmaktadır:
 - **Karar değişkeni:** SKU bazında üretilecek miktar  
 - **Kısıtlar:** Stok sınırları, kategori oranları, üretim kapasitesi  
 
-### 3️⃣ Görselleştirme (Yakında)
+### 3️⃣ Görselleştirme
 - **Araç:** Streamlit  
 - **Amaç:** Tahmin ve optimizasyon sonuçlarını kullanıcı dostu bir arayüzde sunmak  
 
@@ -58,7 +58,7 @@ Proje üç temel aşamadan oluşmaktadır:
 | Bileşen | Teknoloji |
 |----------|------------|
 | Tahminleme | Python (Pandas, Scikit-learn, XGBoost) |
-| Optimizasyon | Pyomo, Gurobi |
+| Optimizasyon | Pyomo, Glpk |
 | Görselleştirme | Streamlit |
 | Veri İşleme | Pandas, CSV |
 | Versiyon Kontrolü | Git + GitHub |
