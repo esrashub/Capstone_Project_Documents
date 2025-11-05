@@ -53,7 +53,7 @@ Proje üç temel aşamadan oluşmaktadır:
 
 ---
 
-## 💻 Uygulama Özeti
+## 💻 Streamlit Dashboard Özeti
 
 Bu web arayüzü, geçmiş sezon verilerini kullanarak **FW26 sezonu için satış tahmini** ve **optimum üretim planı** oluşturan etkileşimli bir **karar destek sistemidir.**
 
